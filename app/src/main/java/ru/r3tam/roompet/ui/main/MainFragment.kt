@@ -1,11 +1,13 @@
 package ru.r3tam.roompet.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.main_fragment.*
 import ru.r3tam.roompet.R
 
 class MainFragment : Fragment() {
@@ -26,7 +28,14 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        viewModel.allCustomers.observe(this, Observer { customers ->
+            customers_tv.text = customers.joinToString("\n") { it.name }
+        })
+
+        customer_add_btn.setOnClickListener {
+            viewModel.createNewCustomer(customer_name_et.text.toString())
+        }
     }
 
 }

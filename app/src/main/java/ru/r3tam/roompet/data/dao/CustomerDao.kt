@@ -25,4 +25,7 @@ interface CustomerDao {
 
     @Query("SELECT * FROM $TABLE_CUSTOMER WHERE uid = :id")
     fun selectCustomerById(id: Int): LiveData<Customer>
+
+    @Query("SELECT * FROM $TABLE_CUSTOMER WHERE name = :name")
+    fun getCustomer(name: String): Customer
 }

@@ -8,12 +8,35 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainFragment">
 
-    <EditText android:layout_width="wrap_content"
+    <EditText android:layout_width="0dp"
               android:layout_height="0dp"
               android:id="@+id/customer_name_et"
               android:minWidth="200dp"
+              app:layout_constraintHeight_default="wrap"
               app:layout_constraintWidth_default="spread"
               app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintStart_toStartOf="parent" tools:layout_editor_absoluteY="375dp"/>
+
+    <Button android:layout_width="150dp"
+            android:layout_height="56dp"
+            android:text="Add customer"
+            app:layout_constraintTop_toBottomOf="@id/customer_name_et"
+            app:layout_constraintStart_toStartOf="@id/customer_name_et"
+            app:layout_constraintEnd_toEndOf="@id/customer_name_et"
+            android:id="@+id/customer_add_btn"/>
+
+    <TextView android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:minHeight="200dp"
+              android:minWidth="300dp"
+              app:layout_constraintWidth_default="wrap"
+              app:layout_constraintTop_toBottomOf="@id/customer_add_btn"
+              app:layout_constraintStart_toStartOf="@id/customer_add_btn"
+              app:layout_constraintEnd_toEndOf="@id/customer_add_btn"
+              app:layout_constraintBottom_toBottomOf="parent"
+              android:id="@+id/customers_tv"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
